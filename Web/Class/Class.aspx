@@ -16,25 +16,25 @@
     <!--Search -->
     <table style="width: 100%;" cellpadding="2" cellspacing="1" class="border">
         <tr>
-            <td style="width: 80px" align="right" class="tdbg">
-                <b>关键字：</b>
-            </td>
+          <%
+              foreach (var item in teachers)
+              {%>
+                <a href="../teacher/TeacherClass.aspx?id=<%= item.ID%>">  <%=item.TeacherName %></a>
+            <%  }
+               %>
             <td class="tdbg">
-                <asp:TextBox ID="txtKeyword" runat="server"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnSearch" runat="server" Text="查询" OnClick="btnSearch_Click"></asp:Button>
-
+               
             </td>
             <td class="tdbg"></td>
         </tr>
     </table>
     <!--Search end-->
     <br />
-    <asp:GridView ID="gridView" runat="server" AllowPaging="True" Width="100%" CellPadding="3" OnPageIndexChanging="gridView_PageIndexChanging"
-        BorderWidth="1px" DataKeyNames="ID" OnRowDataBound="gridView_RowDataBound"
-        AutoGenerateColumns="false" RowStyle-HorizontalAlign="Center" OnRowCreated="gridView_OnRowCreated">
+    <asp:GridView ID="gridView" runat="server" AllowPaging="True" Width="100%" CellPadding="3" 
+        BorderWidth="1px" 
+        AutoGenerateColumns="false" RowStyle-HorizontalAlign="Center" >
         <Columns>
-
+            <asp:BoundField DataField="Day" HeaderText="星期" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundField DataField="Time1" HeaderText="8-10" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundField DataField="Time2" HeaderText="10-12" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundField DataField="Time3" HeaderText="12-14" ItemStyle-HorizontalAlign="Center" />

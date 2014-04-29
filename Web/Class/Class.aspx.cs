@@ -15,14 +15,13 @@ namespace JiaJiao.Web.Class
 
 
         JiaJiao.BLL.Class bll = new JiaJiao.BLL.Class();
-
+        public List<Model.Teacher> teachers;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 gridView.BorderColor = ColorTranslator.FromHtml(Application[Session["Style"].ToString() + "xtable_bordercolorlight"].ToString());
                 gridView.HeaderStyle.BackColor = ColorTranslator.FromHtml(Application[Session["Style"].ToString() + "xtable_titlebgcolor"].ToString());
-                btnDelete.Attributes.Add("onclick", "return confirm(\"你确认要删除吗？\")");
                 BindData();
             }
         }
@@ -43,33 +42,73 @@ namespace JiaJiao.Web.Class
 
         #region gridView
 
+     
+
         public void BindData()
         {
-            #region
-            //if (!Context.User.Identity.IsAuthenticated)
-            //{
-            //    return;
-            //}
-            //AccountsPrincipal user = new AccountsPrincipal(Context.User.Identity.Name);
-            //if (user.HasPermissionID(PermId_Modify))
-            //{
-            //    gridView.Columns[6].Visible = true;
-            //}
-            //if (user.HasPermissionID(PermId_Delete))
-            //{
-            //    gridView.Columns[7].Visible = true;
-            //}
-            #endregion
+            List<JiaJiao.Model.ClassInfo> list = new List<JiaJiao.Model.ClassInfo>();
+            JiaJiao.BLL.Teacher bllTeacher = new JiaJiao.BLL.Teacher();
+            JiaJiao.BLL.ClassSetting classSetting=new BLL.ClassSetting();
 
-            DataSet ds = new DataSet();
-            StringBuilder strWhere = new StringBuilder();
-            if (txtKeyword.Text.Trim() != "")
+            var classlist = bll.GetModelList("").GroupBy(key => key.Day);
+            foreach (var item in classlist)
             {
-#warning 代码生成警告：请修改 keywordField 为需要匹配查询的真实字段名称
-                //strWhere.AppendFormat("keywordField like '%{0}%'", txtKeyword.Text.Trim());
+                list.Add(new JiaJiao.Model.ClassInfo() { Day = item.Key });
             }
-            ds = bll.GetList(strWhere.ToString());
-            gridView.DataSource = ds;
+           
+
+           var teacherlist = bllTeacher.GetModelList("");
+           teachers = teacherlist;
+           var clsSetting = classSetting.GetModelList("").GroupBy(key => key.DayId);
+           int index = 0;
+           
+           foreach (var item in classlist)
+           {
+               int index1 = 0;
+               foreach (var item0 in item)
+               {
+                  var templist =clsSetting.Where(key => key.Key == item0.ID);
+                  if (templist.Count() > 0)
+                  {
+                      foreach (var item1 in templist.FirstOrDefault())
+                      {
+                         var teacher=  teacherlist.Where(t => t.ID == item1.TeacherId).FirstOrDefault();
+                         if (teacher != null)
+                         {
+                             switch (index1)
+                             {
+                                 case 0:
+                                     list[index].Time1 += teacher.TeacherName+" ";
+                                     break;
+                                 case 1:
+                                     list[index].Time2 += teacher.TeacherName + " ";
+                                     break;
+                                 case 2:
+                                     list[index].Time3 += teacher.TeacherName + " ";
+                                     break;
+                                 case 3:
+                                     list[index].Time4 += teacher.TeacherName + " ";
+                                     break;
+                                 case 4:
+                                     list[index].Time5 += teacher.TeacherName + " ";
+                                     break;
+                                 case 5:
+                                     list[index].Time6 += teacher.TeacherName + " ";
+                                     break;
+                                 case 6:
+                                     list[index].Time7 += teacher.TeacherName + " ";
+                                     break;
+                             }  
+
+                         }
+                      }
+                  }
+                  index1++;
+               }
+               index++;
+           }
+
+            gridView.DataSource = list;
             gridView.DataBind();
         }
 
