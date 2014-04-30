@@ -79,7 +79,7 @@
     <Content Include="Controls\checkright.ascx" />
     <Content Include="Controls\copyright.ascx" />
     <Content Include="Global.asax" />
-    <Content Include="Script.txt" />
+    <Content Include="sql\Script.txt" />
     <Content Include="sql\Class.sql" />
     <Content Include="sql\ClassSetting.sql" />
     <Content Include="sql\ErrorLog.sql" />
