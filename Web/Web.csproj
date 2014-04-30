@@ -45,11 +45,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LTP.Accounts, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Lib\LTP.Accounts.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="LtpPageControl, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\Lib\LtpPageControl.dll</HintPath>
       <Private>True</Private>
@@ -552,6 +547,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Accounts\Accounts.csproj">
+      <Project>{BA8588C4-FD8C-4BFF-AECC-FB5EE78A0669}</Project>
+      <Name>Accounts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{38D7AA58-C95B-449B-86C6-A8073A56E11F}</Project>
       <Name>BLL</Name>
