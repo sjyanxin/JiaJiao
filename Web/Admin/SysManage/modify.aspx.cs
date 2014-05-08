@@ -211,7 +211,7 @@ namespace Maticsoft.Web.SysManage
 		//权限
 		private void BiudPermTree()
 		{
-			//				DataSet ds=LTP.Accounts.Bus.AccountsTool.GetAllPermissions();
+			//				DataSet ds=JiaJiao.Bus.AccountsTool.GetAllPermissions();
 			//				this.listPermission.Items.Clear();
 			//				this.listPermission.DataSource=ds.Tables[1];			
 			//				this.listPermission.DataTextField="Description";
@@ -220,7 +220,7 @@ namespace Maticsoft.Web.SysManage
 			//				this.listPermission.Items.Insert(0,"--请选择--");
 							
 
-			DataTable tabcategory=LTP.Accounts.Bus.AccountsTool.GetAllCategories().Tables[0];					
+			DataTable tabcategory=JiaJiao.Bus.AccountsTool.GetAllCategories().Tables[0];					
 			int rc=tabcategory.Rows.Count;
 			for(int n=0;n<rc;n++)
 			{
@@ -229,7 +229,7 @@ namespace Maticsoft.Web.SysManage
 				CategoryName="╋"+CategoryName;
 				this.listPermission.Items.Add(new ListItem(CategoryName,"-1"));
 
-				DataTable tabforums=LTP.Accounts.Bus.AccountsTool.GetPermissionsByCategory(int.Parse(CategoryID)).Tables[0];
+				DataTable tabforums=JiaJiao.Bus.AccountsTool.GetPermissionsByCategory(int.Parse(CategoryID)).Tables[0];
 				int fc=tabforums.Rows.Count;
 				for(int m=0;m<fc;m++)
 				{

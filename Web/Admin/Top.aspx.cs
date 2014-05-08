@@ -27,12 +27,12 @@ namespace Maticsoft.Web.Admin
 				else
 				{
 //					AccountsPrincipal user=new AccountsPrincipal(Context.User.Identity.Name);
-//					LTP.Accounts.Bus.User usern=new LTP.Accounts.Bus.User(user);
+//					JiaJiao.Bus.User usern=new JiaJiao.Bus.User(user);
 					if(Session["UserInfo"]==null)
 					{
 						return ;
 					}
-					LTP.Accounts.Bus.User currentUser=(LTP.Accounts.Bus.User)Session["UserInfo"];
+					JiaJiao.Bus.User currentUser=(JiaJiao.Bus.User)Session["UserInfo"];
 					this.lblSignIn.Text=currentUser.TrueName;
 				}
 

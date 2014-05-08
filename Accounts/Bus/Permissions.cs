@@ -1,6 +1,6 @@
-﻿namespace LTP.Accounts.Bus
+﻿namespace JiaJiao.Bus
 {
-    using LTP.Accounts.Data;
+    using JiaJiao.Data;
     using System;
 
     [Serializable]

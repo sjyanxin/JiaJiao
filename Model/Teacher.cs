@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* Teacher.cs
+*
+* 功 能： N/A
+* 类 名： Teacher
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2014/5/8 15:19:37   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 namespace JiaJiao.Model
 {
 	/// <summary>
@@ -19,6 +35,7 @@ namespace JiaJiao.Model
 		private int? _roleid;
 		private DateTime? _createtime;
 		private DateTime? _updatetime;
+		private string _image;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -90,6 +107,14 @@ namespace JiaJiao.Model
 		{
 			set{ _updatetime=value;}
 			get{return _updatetime;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string Image
+		{
+			set{ _image=value;}
+			get{return _image;}
 		}
 		#endregion Model
 

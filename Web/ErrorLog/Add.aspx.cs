@@ -10,7 +10,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Text;
 using Maticsoft.Common;
-using LTP.Accounts.Bus;
+using JiaJiao.Bus;
 namespace JiaJiao.Web.ErrorLog
 {
     public partial class Add : Page

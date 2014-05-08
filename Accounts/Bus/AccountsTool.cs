@@ -1,6 +1,6 @@
-﻿namespace LTP.Accounts.Bus
+﻿namespace JiaJiao.Bus
 {
-    using LTP.Accounts.Data;
+    using JiaJiao.Data;
     using System;
     using System.Data;
 
@@ -26,7 +26,7 @@
 
         public static DataSet GetRoleList()
         {
-            LTP.Accounts.Data.Role role = new LTP.Accounts.Data.Role();
+            JiaJiao.Data.Role role = new JiaJiao.Data.Role();
             return role.GetRoleList();
         }
     }

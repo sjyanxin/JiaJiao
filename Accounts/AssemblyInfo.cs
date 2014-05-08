@@ -1,4 +1,4 @@
-﻿// Assembly LTP.Accounts, Version 2.0.0.0
+﻿// Assembly JiaJiao, Version 2.0.0.0
 
 [assembly: System.Reflection.AssemblyVersion("2.0.0.0")]
 [assembly: System.Reflection.AssemblyTrademark("")]

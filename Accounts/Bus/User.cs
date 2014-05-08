@@ -1,6 +1,6 @@
-﻿namespace LTP.Accounts.Bus
+﻿namespace JiaJiao.Bus
 {
-    using LTP.Accounts.Data;
+    using JiaJiao.Data;
     using System;
     using System.Data;
 
@@ -8,7 +8,7 @@
     public class User
     {
         private bool activity;
-        private LTP.Accounts.Data.User dataUser;
+        private JiaJiao.Data.User dataUser;
         private string departmentID;
         private string email;
         private int employeeID;
@@ -23,13 +23,13 @@
 
         public User()
         {
-            this.dataUser = new LTP.Accounts.Data.User();
+            this.dataUser = new JiaJiao.Data.User();
             this.departmentID = "-1";
         }
 
         public User(AccountsPrincipal existingPrincipal)
         {
-            this.dataUser = new LTP.Accounts.Data.User();
+            this.dataUser = new JiaJiao.Data.User();
             this.departmentID = "-1";
             this.userID = ((SiteIdentity) existingPrincipal.Identity).UserID;
             this.LoadFromID();
@@ -37,7 +37,7 @@
 
         public User(int existingUserID)
         {
-            this.dataUser = new LTP.Accounts.Data.User();
+            this.dataUser = new JiaJiao.Data.User();
             this.departmentID = "-1";
             this.userID = existingUserID;
             this.LoadFromID();
@@ -45,7 +45,7 @@
 
         public User(string UserName)
         {
-            this.dataUser = new LTP.Accounts.Data.User();
+            this.dataUser = new JiaJiao.Data.User();
             this.departmentID = "-1";
             DataRow row = this.dataUser.Retrieve(UserName);
             if (row != null)

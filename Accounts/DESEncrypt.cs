@@ -1,4 +1,4 @@
-﻿namespace LTP.Accounts
+﻿namespace JiaJiao
 {
     using System;
     using System.IO;

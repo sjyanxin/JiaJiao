@@ -7,15 +7,15 @@ using System.Text;
 using System.Data;
 using Maticsoft.Common;
 using System.Drawing;
-using LTP.Accounts.Bus;
+using JiaJiao.Bus;
 namespace JiaJiao.Web.ClassSetting
 {
     public partial class List : Page
     {
-        
-        
-        
-		JiaJiao.BLL.ClassSetting bll = new JiaJiao.BLL.ClassSetting();
+
+
+
+        JiaJiao.BLL.ClassSetting bll = new JiaJiao.BLL.ClassSetting();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,23 +27,23 @@ namespace JiaJiao.Web.ClassSetting
                 BindData();
             }
         }
-        
+
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             BindData();
         }
-        
+
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             string idlist = GetSelIDlist();
-            if (idlist.Trim().Length == 0) 
+            if (idlist.Trim().Length == 0)
                 return;
             bll.DeleteList(idlist);
             BindData();
         }
-        
+
         #region gridView
-                        
+
         public void BindData()
         {
             #region
@@ -63,13 +63,18 @@ namespace JiaJiao.Web.ClassSetting
             #endregion
 
             DataSet ds = new DataSet();
-            StringBuilder strWhere = new StringBuilder();
-            if (txtKeyword.Text.Trim() != "")
-            {      
-                #warning 代码生成警告：请修改 keywordField 为需要匹配查询的真实字段名称
-                //strWhere.AppendFormat("keywordField like '%{0}%'", txtKeyword.Text.Trim());
-            }            
-            ds = bll.GetList(strWhere.ToString());            
+            string strSql = @"SELECT CS.ID, T.TeacherName,
+	 C.Day+' '+C.Time as Day, 
+      [Total]
+      ,[Count]     
+  FROM [ClassSetting] CS join [Class] C ON CS.[DayId]=C.ID  
+  join Teacher T ON T.[Id]=CS.[TeacherId]
+  
+  ";
+
+
+            ds = DbHelperSQL.Query(strSql);
+            //  ds = bll.GetList(strWhere.ToString());            
             gridView.DataSource = ds;
             gridView.DataBind();
         }
@@ -93,16 +98,16 @@ namespace JiaJiao.Web.ClassSetting
             {
                 LinkButton linkbtnDel = (LinkButton)e.Row.FindControl("LinkButton1");
                 linkbtnDel.Attributes.Add("onclick", "return confirm(\"你确认要删除吗\")");
-                
+
                 //object obj1 = DataBinder.Eval(e.Row.DataItem, "Levels");
                 //if ((obj1 != null) && ((obj1.ToString() != "")))
                 //{
                 //    e.Row.Cells[1].Text = obj1.ToString();
                 //}
-               
+
             }
         }
-        
+
         protected void gridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             //#warning 代码生成警告：请检查确认真实主键的名称和类型是否正确
@@ -123,7 +128,7 @@ namespace JiaJiao.Web.ClassSetting
                     BxsChkd = true;
                     //#warning 代码生成警告：请检查确认Cells的列索引是否正确
                     if (gridView.DataKeys[i].Value != null)
-                    {                        
+                    {
                         idlist += gridView.DataKeys[i].Value.ToString() + ",";
                     }
                 }

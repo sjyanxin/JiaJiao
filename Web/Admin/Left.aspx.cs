@@ -2,7 +2,7 @@
 using System.Data;
 using System.Web.UI.WebControls;
 using Microsoft.Web.UI.WebControls;
-using LTP.Accounts.Bus;
+using JiaJiao.Bus;
 using System.Configuration;
 
 namespace Maticsoft.Web.Admin
@@ -28,7 +28,7 @@ namespace Maticsoft.Web.Admin
 				{
 					return ;				
 				}
-				currentUser=(LTP.Accounts.Bus.User)Session["UserInfo"];
+				currentUser=(JiaJiao.Bus.User)Session["UserInfo"];
 				Maticsoft.BLL.SysManage sm=new Maticsoft.BLL.SysManage();
 				DataSet ds;			
 				ds=sm.GetTreeList("");

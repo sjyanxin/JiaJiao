@@ -1,13 +1,13 @@
-﻿namespace LTP.Accounts.Bus
+﻿namespace JiaJiao.Bus
 {
-    using LTP.Accounts.Data;
+    using JiaJiao.Data;
     using System;
     using System.Data;
 
     [Serializable]
     public class Role
     {
-        private LTP.Accounts.Data.Role dataRole;
+        private JiaJiao.Data.Role dataRole;
         private string description;
         private DataSet nopermissions;
         private DataSet permissions;
@@ -16,12 +16,12 @@
 
         public Role()
         {
-            this.dataRole = new LTP.Accounts.Data.Role();
+            this.dataRole = new JiaJiao.Data.Role();
         }
 
         public Role(int currentRoleId)
         {
-            this.dataRole = new LTP.Accounts.Data.Role();
+            this.dataRole = new JiaJiao.Data.Role();
             DataRow row = this.dataRole.Retrieve(currentRoleId);
             this.roleId = currentRoleId;
             if (row["Description"] != null)
@@ -31,7 +31,7 @@
             Permission permission = new Permission();
             this.permissions = permission.GetPermissionList(currentRoleId);
             this.nopermissions = permission.GetNoPermissionList(currentRoleId);
-            this.users = new LTP.Accounts.Data.User().GetUsersByRole(currentRoleId);
+            this.users = new JiaJiao.Data.User().GetUsersByRole(currentRoleId);
         }
 
         public void AddPermission(int permissionId)

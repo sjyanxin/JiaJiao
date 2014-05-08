@@ -1,6 +1,6 @@
-﻿namespace LTP.Accounts.Data
+﻿namespace JiaJiao.Data
 {
-    using LTP.Accounts;
+    using JiaJiao;
     using System;
     using System.Collections;
     using System.Data;

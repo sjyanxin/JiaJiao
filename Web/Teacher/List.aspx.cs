@@ -7,7 +7,7 @@ using System.Text;
 using System.Data;
 using Maticsoft.Common;
 using System.Drawing;
-using LTP.Accounts.Bus;
+using JiaJiao.Bus;
 namespace JiaJiao.Web.Teacher
 {
     public partial class List : Page

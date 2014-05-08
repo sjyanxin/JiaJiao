@@ -16,46 +16,33 @@
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		TeacherId
+		老师
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:Label id="lblTeacherId" runat="server"></asp:Label>
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		DayId
+		时间
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:Label id="lblDayId" runat="server"></asp:Label>
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		Total
+		开班人数
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:Label id="lblTotal" runat="server"></asp:Label>
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		Count
+		报名人数
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:Label id="lblCount" runat="server"></asp:Label>
 	</td></tr>
-	<tr>
-	<td height="25" width="30%" align="right">
-		CreateTime
-	：</td>
-	<td height="25" width="*" align="left">
-		<asp:Label id="lblCreateTime" runat="server"></asp:Label>
-	</td></tr>
-	<tr>
-	<td height="25" width="30%" align="right">
-		UpdateTime
-	：</td>
-	<td height="25" width="*" align="left">
-		<asp:Label id="lblUpdateTime" runat="server"></asp:Label>
-	</td></tr>
+	
 </table>
 
                     </td>

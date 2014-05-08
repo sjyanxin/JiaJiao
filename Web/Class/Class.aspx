@@ -14,7 +14,7 @@
     <!--Add end -->
 
     <!--Search -->
-    <table style="width: 100%;" cellpadding="2" cellspacing="1" class="border">
+    <table style="width: 100%; " cellpadding="2" cellspacing="1" class="border" >
         <tr>
           <%
               foreach (var item in teachers)
@@ -25,7 +25,12 @@
             <td class="tdbg">
                
             </td>
-            <td class="tdbg"></td>
+            <td class="tdbg">
+            
+            </td>
+        </tr>
+        <tr>
+        
         </tr>
     </table>
     <!--Search end-->

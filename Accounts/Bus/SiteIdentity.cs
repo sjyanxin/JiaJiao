@@ -1,6 +1,6 @@
-﻿namespace LTP.Accounts.Bus
+﻿namespace JiaJiao.Bus
 {
-    using LTP.Accounts.Data;
+    using JiaJiao.Data;
     using System;
     using System.Data;
     using System.Security.Cryptography;
@@ -10,7 +10,7 @@
     [Serializable]
     public class SiteIdentity : IIdentity
     {
-        private LTP.Accounts.Data.User dataUser;
+        private JiaJiao.Data.User dataUser;
         private string email;
         private byte[] password;
         private string sex;
@@ -20,7 +20,7 @@
 
         public SiteIdentity(int currentUserID)
         {
-            this.dataUser = new LTP.Accounts.Data.User();
+            this.dataUser = new JiaJiao.Data.User();
             DataRow row = this.dataUser.Retrieve(currentUserID);
             if (row != null)
             {
@@ -35,7 +35,7 @@
 
         public SiteIdentity(string currentUserName)
         {
-            this.dataUser = new LTP.Accounts.Data.User();
+            this.dataUser = new JiaJiao.Data.User();
             DataRow row = this.dataUser.Retrieve(currentUserName);
             if (row != null)
             {

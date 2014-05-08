@@ -8,7 +8,7 @@ using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
-using LTP.Accounts.Bus;
+using JiaJiao.Bus;
 
 namespace Maticsoft.Web.Accounts.Admin
 {

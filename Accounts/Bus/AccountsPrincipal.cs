@@ -1,6 +1,6 @@
-﻿namespace LTP.Accounts.Bus
+﻿namespace JiaJiao.Bus
 {
-    using LTP.Accounts.Data;
+    using JiaJiao.Data;
     using System;
     using System.Collections;
     using System.Security.Cryptography;
@@ -9,7 +9,7 @@
 
     public class AccountsPrincipal : IPrincipal
     {
-        private LTP.Accounts.Data.User dataUser;
+        private JiaJiao.Data.User dataUser;
         protected IIdentity identity;
         protected ArrayList permissionList;
         protected ArrayList permissionListid;
@@ -17,7 +17,7 @@
 
         public AccountsPrincipal(int userID)
         {
-            this.dataUser = new LTP.Accounts.Data.User();
+            this.dataUser = new JiaJiao.Data.User();
             this.identity = new SiteIdentity(userID);
             this.permissionList = this.dataUser.GetEffectivePermissionList(userID);
             this.permissionListid = this.dataUser.GetEffectivePermissionListID(userID);
@@ -26,7 +26,7 @@
 
         public AccountsPrincipal(string userName)
         {
-            this.dataUser = new LTP.Accounts.Data.User();
+            this.dataUser = new JiaJiao.Data.User();
             this.identity = new SiteIdentity(userName);
             this.permissionList = this.dataUser.GetEffectivePermissionList(((SiteIdentity) this.identity).UserID);
             this.permissionListid = this.dataUser.GetEffectivePermissionListID(((SiteIdentity) this.identity).UserID);
@@ -58,7 +58,7 @@
         public static AccountsPrincipal ValidateLogin(string userName, string password)
         {
             byte[] encPassword = EncryptPassword(password);
-            LTP.Accounts.Data.User user = new LTP.Accounts.Data.User();
+            JiaJiao.Data.User user = new JiaJiao.Data.User();
             int userID = user.ValidateLogin(userName, encPassword);
             if (userID > 0)
             {

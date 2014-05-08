@@ -1,12 +1,12 @@
-﻿namespace LTP.Accounts.Bus
+﻿namespace JiaJiao.Bus
 {
-    using LTP.Accounts.Data;
+    using JiaJiao.Data;
     using System;
     using System.Data;
 
     public class UserType
     {
-        private LTP.Accounts.Data.UserType dal = new LTP.Accounts.Data.UserType();
+        private JiaJiao.Data.UserType dal = new JiaJiao.Data.UserType();
 
         public void Add(string UserType, string Description)
         {

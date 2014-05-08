@@ -13,7 +13,7 @@ namespace Maticsoft.Web.Accounts.Admin
 {
     public partial class UserType : System.Web.UI.Page
     {
-        LTP.Accounts.Bus.UserType ut = new LTP.Accounts.Bus.UserType();
+        JiaJiao.Bus.UserType ut = new JiaJiao.Bus.UserType();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)

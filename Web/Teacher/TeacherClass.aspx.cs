@@ -52,6 +52,7 @@ namespace JiaJiao.Web.Teacher
             var teacher = teacherlist.Where(t => t.ID.ToString() == Request.QueryString["id"]).FirstOrDefault();
             if (teacher != null)
             {
+                Image1.ImageUrl= teacher.Image;
                 Label1.Text = teacher.TeacherName;
                 Label2.Text = teacher.TeacherDescribe;
             }

@@ -11,53 +11,42 @@
 <table cellSpacing="0" cellPadding="0" width="100%" border="0">
 	<tr>
 	<td height="25" width="30%" align="right">
-		StuName
+		姓名
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:TextBox id="txtStuName" runat="server" Width="200px"></asp:TextBox>
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		StuEmail
+		Email
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:TextBox id="txtStuEmail" runat="server" Width="200px"></asp:TextBox>
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		StuTel
+		电话
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:TextBox id="txtStuTel" runat="server" Width="200px"></asp:TextBox>
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		StuAddress
+		地址
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:TextBox id="txtStuAddress" runat="server" Width="200px"></asp:TextBox>
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		RoleId
+		角色
 	：</td>
 	<td height="25" width="*" align="left">
-		<asp:TextBox id="txtRoleId" runat="server" Width="200px"></asp:TextBox>
+		<asp:DropDownList ID="DropDownList1" runat="server" DataTextField="Description" 
+            DataValueField="RoleID">
+        </asp:DropDownList>
 	</td></tr>
-	<tr>
-	<td height="25" width="30%" align="right">
-		CreateTime
-	：</td>
-	<td height="25" width="*" align="left">
-		<asp:TextBox ID="txtCreateTime" runat="server" Width="70px"  onfocus="setday(this)"></asp:TextBox>
-	</td></tr>
-	<tr>
-	<td height="25" width="30%" align="right">
-		UpdteTime
-	：</td>
-	<td height="25" width="*" align="left">
-		<asp:TextBox ID="txtUpdteTime" runat="server" Width="70px"  onfocus="setday(this)"></asp:TextBox>
-	</td></tr>
+	
 </table>
 <script src="/js/calendar1.js" type="text/javascript"></script>
 

@@ -8,7 +8,7 @@ using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
-using LTP.Accounts.Bus;
+using JiaJiao.Bus;
 using System.Configuration;
 namespace Maticsoft.Web.Accounts
 {
@@ -25,7 +25,7 @@ namespace Maticsoft.Web.Accounts
 				if (Context.User.Identity.IsAuthenticated)
 				{					
 					AccountsPrincipal user=new AccountsPrincipal(Context.User.Identity.Name);						
-					User currentUser=new LTP.Accounts.Bus.User(user);
+					User currentUser=new JiaJiao.Bus.User(user);
 
 					this.lblName.Text=currentUser.UserName;
 					txtTrueName.Text=currentUser.TrueName;
@@ -101,7 +101,7 @@ namespace Maticsoft.Web.Accounts
 			{			
 				string username=this.lblName.Text.Trim();				
 				AccountsPrincipal user=new AccountsPrincipal(username);
-				User currentUser=new LTP.Accounts.Bus.User(user);
+				User currentUser=new JiaJiao.Bus.User(user);
 				currentUser.UserName=username;
 				currentUser.TrueName=txtTrueName.Text.Trim();
 				if(RadioButton1.Checked)

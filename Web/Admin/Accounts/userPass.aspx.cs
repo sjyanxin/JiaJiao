@@ -8,7 +8,7 @@ using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
-using LTP.Accounts.Bus;
+using JiaJiao.Bus;
 
 namespace Maticsoft.Web.Accounts
 {
@@ -25,7 +25,7 @@ namespace Maticsoft.Web.Accounts
 				if (Context.User.Identity.IsAuthenticated)
 				{					
 					AccountsPrincipal user=new AccountsPrincipal(Context.User.Identity.Name);
-					User currentUser=new LTP.Accounts.Bus.User(user);
+					User currentUser=new JiaJiao.Bus.User(user);
 					this.lblName.Text=currentUser.UserName;					
 				}
 			}
@@ -70,7 +70,7 @@ namespace Maticsoft.Web.Accounts
 				else
 				{
 					AccountsPrincipal user=new AccountsPrincipal(Context.User.Identity.Name);
-					User currentUser=new LTP.Accounts.Bus.User(user);
+					User currentUser=new JiaJiao.Bus.User(user);
 				
 					currentUser.Password=AccountsPrincipal.EncryptPassword(txtPassword.Text);					
 

@@ -96,7 +96,7 @@ namespace Maticsoft.Web.SysManage
 
 		private void BiudPermTree()
 		{
-			DataTable tabcategory=LTP.Accounts.Bus.AccountsTool.GetAllCategories().Tables[0];					
+			DataTable tabcategory=JiaJiao.Bus.AccountsTool.GetAllCategories().Tables[0];					
 			int rc=tabcategory.Rows.Count;
 			for(int n=0;n<rc;n++)
 			{
@@ -105,7 +105,7 @@ namespace Maticsoft.Web.SysManage
 				CategoryName="╋"+CategoryName;
 				this.listPermission.Items.Add(new ListItem(CategoryName,CategoryID));
 
-				DataTable tabforums=LTP.Accounts.Bus.AccountsTool.GetPermissionsByCategory(int.Parse(CategoryID)).Tables[0];
+				DataTable tabforums=JiaJiao.Bus.AccountsTool.GetPermissionsByCategory(int.Parse(CategoryID)).Tables[0];
 				int fc=tabforums.Rows.Count;
 				for(int m=0;m<fc;m++)
 				{
@@ -232,7 +232,7 @@ namespace Maticsoft.Web.SysManage
             Maticsoft.BLL.SysManage sm = new Maticsoft.BLL.SysManage();
             if (CheckBox1.Checked)
             {
-                LTP.Accounts.Bus.Permissions p = new LTP.Accounts.Bus.Permissions();
+                JiaJiao.Bus.Permissions p = new JiaJiao.Bus.Permissions();
                 string permissionName = node.Text;
                 int parentID = node.ParentID;
                 if (parentID == 0)

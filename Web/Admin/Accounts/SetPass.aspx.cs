@@ -49,7 +49,7 @@ namespace Maticsoft.Web.Accounts
 				string username=this.txtUserName.Text;
 				string passward=this.txtPassword.Text;
 				
-				LTP.Accounts.Bus.User currentUser=new LTP.Accounts.Bus.User();				
+				JiaJiao.Bus.User currentUser=new JiaJiao.Bus.User();				
 			
 				if (!currentUser.SetPassword(username,passward))
 				{

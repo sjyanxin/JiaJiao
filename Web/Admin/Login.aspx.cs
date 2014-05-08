@@ -1,5 +1,5 @@
 ﻿using System;
-using LTP.Accounts.Bus;
+using JiaJiao.Bus;
 using System.Web.Security;
 
 namespace Maticsoft.Web.Admin
@@ -99,7 +99,7 @@ namespace Maticsoft.Web.Admin
             {
                 
                 //根据用户对象的上下文得到用户对象信息，用于得到其他信息
-                User currentUser = new LTP.Accounts.Bus.User(newUser);
+                User currentUser = new JiaJiao.Bus.User(newUser);
                 //if (currentUser.UserType != "AA")
                 //{
                 //    this.lblMsg.Text = "你非管理员用户，你没有权限登录后台系统！";

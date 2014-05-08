@@ -46,9 +46,9 @@ namespace JiaJiao.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Teacher(");
-			strSql.Append("TeacherName,TeacherTel,TeacherEmail,TeacherAddress,TeacherDescribe,RoleId,CreateTime,UpdateTime)");
+			strSql.Append("TeacherName,TeacherTel,TeacherEmail,TeacherAddress,TeacherDescribe,RoleId,CreateTime,UpdateTime,Image)");
 			strSql.Append(" values (");
-			strSql.Append("@TeacherName,@TeacherTel,@TeacherEmail,@TeacherAddress,@TeacherDescribe,@RoleId,@CreateTime,@UpdateTime)");
+			strSql.Append("@TeacherName,@TeacherTel,@TeacherEmail,@TeacherAddress,@TeacherDescribe,@RoleId,@CreateTime,@UpdateTime,@Image)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@TeacherName", SqlDbType.NVarChar,50),
@@ -58,7 +58,8 @@ namespace JiaJiao.DAL
 					new SqlParameter("@TeacherDescribe", SqlDbType.NVarChar,50),
 					new SqlParameter("@RoleId", SqlDbType.Int,4),
 					new SqlParameter("@CreateTime", SqlDbType.DateTime),
-					new SqlParameter("@UpdateTime", SqlDbType.DateTime)};
+					new SqlParameter("@UpdateTime", SqlDbType.DateTime),
+					new SqlParameter("@Image", SqlDbType.NVarChar,50)};
 			parameters[0].Value = model.TeacherName;
 			parameters[1].Value = model.TeacherTel;
 			parameters[2].Value = model.TeacherEmail;
@@ -67,6 +68,7 @@ namespace JiaJiao.DAL
 			parameters[5].Value = model.RoleId;
 			parameters[6].Value = model.CreateTime;
 			parameters[7].Value = model.UpdateTime;
+			parameters[8].Value = model.Image;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -92,7 +94,8 @@ namespace JiaJiao.DAL
 			strSql.Append("TeacherDescribe=@TeacherDescribe,");
 			strSql.Append("RoleId=@RoleId,");
 			strSql.Append("CreateTime=@CreateTime,");
-			strSql.Append("UpdateTime=@UpdateTime");
+			strSql.Append("UpdateTime=@UpdateTime,");
+			strSql.Append("Image=@Image");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@TeacherName", SqlDbType.NVarChar,50),
@@ -103,6 +106,7 @@ namespace JiaJiao.DAL
 					new SqlParameter("@RoleId", SqlDbType.Int,4),
 					new SqlParameter("@CreateTime", SqlDbType.DateTime),
 					new SqlParameter("@UpdateTime", SqlDbType.DateTime),
+					new SqlParameter("@Image", SqlDbType.NVarChar,50),
 					new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = model.TeacherName;
 			parameters[1].Value = model.TeacherTel;
@@ -112,7 +116,8 @@ namespace JiaJiao.DAL
 			parameters[5].Value = model.RoleId;
 			parameters[6].Value = model.CreateTime;
 			parameters[7].Value = model.UpdateTime;
-			parameters[8].Value = model.ID;
+			parameters[8].Value = model.Image;
+			parameters[9].Value = model.ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -176,7 +181,7 @@ namespace JiaJiao.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,TeacherName,TeacherTel,TeacherEmail,TeacherAddress,TeacherDescribe,RoleId,CreateTime,UpdateTime from Teacher ");
+			strSql.Append("select  top 1 ID,TeacherName,TeacherTel,TeacherEmail,TeacherAddress,TeacherDescribe,RoleId,CreateTime,UpdateTime,Image from Teacher ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -240,6 +245,10 @@ namespace JiaJiao.DAL
 				{
 					model.UpdateTime=DateTime.Parse(row["UpdateTime"].ToString());
 				}
+				if(row["Image"]!=null)
+				{
+					model.Image=row["Image"].ToString();
+				}
 			}
 			return model;
 		}
@@ -250,7 +259,7 @@ namespace JiaJiao.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,TeacherName,TeacherTel,TeacherEmail,TeacherAddress,TeacherDescribe,RoleId,CreateTime,UpdateTime ");
+			strSql.Append("select ID,TeacherName,TeacherTel,TeacherEmail,TeacherAddress,TeacherDescribe,RoleId,CreateTime,UpdateTime,Image ");
 			strSql.Append(" FROM Teacher ");
 			if(strWhere.Trim()!="")
 			{
@@ -270,7 +279,7 @@ namespace JiaJiao.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,TeacherName,TeacherTel,TeacherEmail,TeacherAddress,TeacherDescribe,RoleId,CreateTime,UpdateTime ");
+			strSql.Append(" ID,TeacherName,TeacherTel,TeacherEmail,TeacherAddress,TeacherDescribe,RoleId,CreateTime,UpdateTime,Image ");
 			strSql.Append(" FROM Teacher ");
 			if(strWhere.Trim()!="")
 			{

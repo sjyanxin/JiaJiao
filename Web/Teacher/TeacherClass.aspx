@@ -17,21 +17,26 @@
     <table style="width: 100%;" cellpadding="2" cellspacing="1" class="border">
         <tr align="center">
 
-            <td class="tdbg">
+            <td class="tdbg" colspan=2>
 
-                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                <asp:Label ID="Label1" runat="server" Font-Bold=true Font-Size=XX-Large  Text=""></asp:Label>
 
             </td>
 
         </tr>
         <tr align="center">
 
-            <td class="tdbg">
+            <td class="tdbg" height="100" width="100">
 
-                <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+               
+                <asp:Image ID="Image1" runat="server" />
 
             </td>
+                <td class="tdbg">
 
+                <asp:Label ID="Label2" runat="server" Font-Size=Medium Text=""></asp:Label>
+
+            </td>
         </tr>
     </table>
     <!--Search end-->

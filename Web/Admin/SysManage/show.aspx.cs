@@ -39,7 +39,7 @@ namespace Maticsoft.Web.SysManage
 				}
 				lblUrl.Text=node.Url;
 				lblImgUrl.Text=node.ImageUrl;
-				LTP.Accounts.Bus.Permissions perm=new LTP.Accounts.Bus.Permissions();
+				JiaJiao.Bus.Permissions perm=new JiaJiao.Bus.Permissions();
 				if(node.PermissionID==-1)
 				{
 					this.lblPermission.Text="没有权限限制";

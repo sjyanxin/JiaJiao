@@ -1,0 +1,23 @@
+USE [JiaJiao]
+GO
+
+/****** Object:  Table [dbo].[Class]    Script Date: 04/29/2014 17:30:08 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Class](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Day] [nvarchar](50) NULL,
+	[Time] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Class] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+

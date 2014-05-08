@@ -7,7 +7,7 @@ using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Web.Security;
-using LTP.Accounts.Bus;
+using JiaJiao.Bus;
 namespace JiaJiao.Web 
 {
 	/// <summary>

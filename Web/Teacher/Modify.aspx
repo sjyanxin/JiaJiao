@@ -16,60 +16,60 @@
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		TeacherName
+		姓名
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:TextBox id="txtTeacherName" runat="server" Width="200px"></asp:TextBox>
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		TeacherTel
+		电话
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:TextBox id="txtTeacherTel" runat="server" Width="200px"></asp:TextBox>
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		TeacherEmail
+		Email
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:TextBox id="txtTeacherEmail" runat="server" Width="200px"></asp:TextBox>
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		TeacherAddress
+		地址
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:TextBox id="txtTeacherAddress" runat="server" Width="200px"></asp:TextBox>
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		TeacherDescribe
+		简介
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:TextBox id="txtTeacherDescribe" runat="server" Width="200px"></asp:TextBox>
 	</td></tr>
-	<tr>
-	<td height="25" width="30%" align="right">
-		RoleId
-	：</td>
-	<td height="25" width="*" align="left">
-		<asp:TextBox id="txtRoleId" runat="server" Width="200px"></asp:TextBox>
-	</td></tr>
-	<tr>
-	<td height="25" width="30%" align="right">
-		CreateTime
-	：</td>
-	<td height="25" width="*" align="left">
-		<asp:TextBox ID="txtCreateTime" runat="server" Width="70px"  onfocus="setday(this)"></asp:TextBox>
-	</td></tr>
-	<tr>
-	<td height="25" width="30%" align="right">
-		UpdateTime
-	：</td>
-	<td height="25" width="*" align="left">
-		<asp:TextBox ID="txtUpdateTime" runat="server" Width="70px"  onfocus="setday(this)"></asp:TextBox>
-	</td></tr>
+	    <tr>
+                        <td height="25" width="30%" align="right">
+                            角色 ：
+                        </td>
+                        <td height="25" width="*" align="left">
+                            <asp:DropDownList ID="DropDownList1" DataValueField="RoleID" DataTextField="Description"
+                                runat="server">
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="100" width="30%" align="right">
+                            肖像 ：
+                        </td>
+                    
+                        <td height="100" width="*" align="left">
+                           <input id="fileUpLoad" type="file" runat="server" width="0"   onchange="javascript:PreviewImg(this);" /> 
+                      
+                        </td>
+                    </tr>
+               
 </table>
 <script src="/js/calendar1.js" type="text/javascript"></script>
 
