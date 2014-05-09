@@ -107,12 +107,20 @@ namespace JiaJiao.Web.Teacher
             model.RoleId = RoleId;
             model.CreateTime = CreateTime;
             model.UpdateTime = UpdateTime;
+            JiaJiao.BLL.Teacher bll = new JiaJiao.BLL.Teacher();
             if (flag)
             {
                 model.Image = "~/Images/" + file;
-            }          
+            }
+            else
+            {
+              
+                JiaJiao.Model.Teacher model1 = bll.GetModel(ID);
+                model.Image = model1.Image;
+               int id= int.Parse(Request.Params["id"]);
+            }
 
-            JiaJiao.BLL.Teacher bll = new JiaJiao.BLL.Teacher();
+         
             bll.Update(model);
             Maticsoft.Common.MessageBox.ShowAndRedirect(this, "保存成功！", "list.aspx");
 
